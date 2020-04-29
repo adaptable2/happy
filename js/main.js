@@ -1,6 +1,12 @@
 $(document).ready(function(){
     $('.overOpen').mouseover(function(){
-        $('.' + $(this).attr('id')).css('opacity', 1);
+        $('.' + $(this).attr('id')).css('opacity', 1).addClass('active');
+        if($('#cacke-grid .step').length === $('#cacke-grid .active').length){
+            $('html, body').animate({ 
+                scrollTop: $('#hbd').offset().top
+            }, 'slow')
+            $('#cacke-grid .overOpen').css('pointer-events','none');
+        };
     })
 
     $(window).resize(function(){
@@ -9,7 +15,6 @@ $(document).ready(function(){
 
     function cakemobile(){
         if($(window).width() < 767){
-            console.log('768');
             $('.cake').addClass('fixed')
         }else{
             $('.cake').removeClass('fixed');
@@ -38,36 +43,18 @@ $(document).ready(function(){
             }            
         }
     } 
-    widthwindows();
+    widthwindows(); 
 
-    var s = $('.hbd');
-    var pos = s.position();
+    $(window).scroll(function(){
+        // Get container scroll position
+        var fromTop = $(this).scrollTop() + $(window).height() - parseInt($(".cake").height());
+        var position = $('.hbd')[0].offsetTop;
 
-    $(window).scroll(function() {
+        // console.log(fromTop);
 
-        var windowpos = $(window).scrollTop();
-
-        if (windowpos >= pos.top) {
-            $('.cake').addClass("fixed");
-        } else {
-            $('.cake').removeClass("fixed");
+        if(fromTop >= position){
+            $('.cake').removeClass('fixed');
         }
-    });
+    }); 
 
-
-    // $(window).scroll(function(){
-    //     // Get container scroll position
-    //     // var fromTop = $(this).scrollTop() + $(window).height();
-    //     // var position = $('.hbd')[0].offsetTop;
-
-    //     // console.log( fromTop )
-    //     console.log( fromTop );
-    //     console.log( `position ${position}` )
-
-    //     if(fromTop > position){
-    //         $('.cake').removeClass('fixed');
-    //     }else{
-    //         $('.cake').addClass('fixed');
-    //     }
-    // }); 
 });
