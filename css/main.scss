@@ -146,9 +146,8 @@ p{
         &.fixed{
             position: fixed;
             width: 100%;
-            bottom: 0;
             left: 50%;
-            transform: translateX(-50%); 
+            transform: translateY(calc(100% - 50px)) translateX(-50%); 
             z-index: 9;
             background: rgb(227,232,42);
             background: linear-gradient(180deg, rgba(227,232,42,0) 0%, rgba(227,232,42,1) 82%, rgba(227,232,42,1) 100%);
