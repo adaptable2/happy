@@ -18,20 +18,6 @@ $(document).ready(function(){
     function cakemobile(){
         if($(window).width() < 767){
             $('.cake').addClass('fixed')
-
-            var hbd = $('.hbd');
-            var hbdPos = hbd.position();
-        
-            $(window).scroll(function() {
-                var windowPos = $(window).scrollTop();
-                if (windowPos > (hbdPos.top - hbd[0].offsetHeight)) {
-                    $('.cake').removeClass("fixed");
-                }else if (windowPos < (hbdPos.top - hbd[0].offsetHeight)) {
-                    $('.cake').addClass("fixed");
-                }
-            });
-
-
         }else{
             $('.cake').removeClass('fixed');
         }
@@ -60,4 +46,19 @@ $(document).ready(function(){
         }
     } 
     widthwindows(); 
+
+    if($(window).width() < 767){
+        var hbd = $('.hbd');
+        var hbdPos = hbd.position();
+    
+        $(window).scroll(function() {
+            var windowPos = $(window).scrollTop();
+            if (windowPos > (hbdPos.top - hbd[0].offsetHeight)) {
+                $('.cake').removeClass("fixed");
+            }else if (windowPos < (hbdPos.top - hbd[0].offsetHeight)) {
+                $('.cake').addClass("fixed");
+            }
+        });
+    }
+
 });
