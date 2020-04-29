@@ -40,34 +40,15 @@ $(document).ready(function(){
     } 
     widthwindows();
 
-    var s = $('.hbd');
-    var pos = s.position();
+    var hbd = $('.hbd');
+    var hbdPos = hbd.position();
 
     $(window).scroll(function() {
-
-        var windowpos = $(window).scrollTop();
-
-        if (windowpos >= pos.top) {
-            $('.cake').addClass("fixed");
-        } else {
+        var windowPos = $(window).scrollTop();
+        if (windowPos > (hbdPos.top - hbd[0].offsetHeight)) {
             $('.cake').removeClass("fixed");
+        }else if (windowPos < (hbdPos.top - hbd[0].offsetHeight)) {
+            $('.cake').addClass("fixed");
         }
     });
-
-
-    // $(window).scroll(function(){
-    //     // Get container scroll position
-    //     // var fromTop = $(this).scrollTop() + $(window).height();
-    //     // var position = $('.hbd')[0].offsetTop;
-
-    //     // console.log( fromTop )
-    //     console.log( fromTop );
-    //     console.log( `position ${position}` )
-
-    //     if(fromTop > position){
-    //         $('.cake').removeClass('fixed');
-    //     }else{
-    //         $('.cake').addClass('fixed');
-    //     }
-    // }); 
 });
