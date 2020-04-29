@@ -9,7 +9,6 @@ $(document).ready(function(){
 
     function cakemobile(){
         if($(window).width() < 767){
-            console.log('768');
             $('.cake').addClass('fixed')
         }else{
             $('.cake').removeClass('fixed');
