@@ -65,6 +65,7 @@ p{
         line-height: 18px;
     }
     @media (min-width: 576px){
+        font-size: 16px;
         margin: 0 10px;
         font-size: auto;
         img{
@@ -72,6 +73,19 @@ p{
         }
     }
 }
+.img-redes{
+    a{
+        display: block;
+        min-width: 20px;
+        @media (min-width: 576px){
+            min-width: 30px;
+            img{
+                min-width: 25px;
+            }
+        }
+    }
+}
+
 .btn-download{
     min-width: 150px;
     @media (min-width: 576px){
