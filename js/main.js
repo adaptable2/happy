@@ -1,6 +1,12 @@
 $(document).ready(function(){
     $('.overOpen').mouseover(function(){
-        $('.' + $(this).attr('id')).css('opacity', 1);
+        $('.' + $(this).attr('id')).css('opacity', 1).addClass('active');
+        if($('#cacke-grid .step').length === $('#cacke-grid .active').length){
+            $('html, body').animate({ 
+                scrollTop: $('#hbd').offset().top
+            }, 'slow')
+            $('#cacke-grid .overOpen').css('pointer-events','none');
+        };
     })
 
     $(window).resize(function(){
@@ -37,7 +43,7 @@ $(document).ready(function(){
             }            
         }
     } 
-    widthwindows();
+    widthwindows(); 
 
     var hbd = $('.hbd');
     var hbdPos = hbd.position();
