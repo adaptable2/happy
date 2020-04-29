@@ -45,16 +45,15 @@ $(document).ready(function(){
     } 
     widthwindows(); 
 
-    $(window).scroll(function(){
-        // Get container scroll position
-        var fromTop = $(this).scrollTop() + $(window).height() - parseInt($(".cake").height());
-        var position = $('.hbd')[0].offsetTop;
+    var hbd = $('.hbd');
+    var hbdPos = hbd.position();
 
-        // console.log(fromTop);
-
-        if(fromTop >= position){
-            $('.cake').removeClass('fixed');
+    $(window).scroll(function() {
+        var windowPos = $(window).scrollTop();
+        if (windowPos > (hbdPos.top - hbd[0].offsetHeight)) {
+            $('.cake').removeClass("fixed");
+        }else if (windowPos < (hbdPos.top - hbd[0].offsetHeight)) {
+            $('.cake').addClass("fixed");
         }
-    }); 
-
+    });
 });
